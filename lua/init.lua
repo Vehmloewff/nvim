@@ -9,5 +9,5 @@ vim.opt.rnu = true
 require('plugins')
 require('keymaps')
 require('commands')
-
+require('lsp')
 

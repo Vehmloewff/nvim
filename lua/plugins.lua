@@ -1,6 +1,6 @@
 local function setup(name)
-	local hasMod, mod = pcall(require, name)	
-	
+	local hasMod, mod = pcall(require, name)
+
 	return function(arg)
 		if hasMod then mod.setup(arg) end
 	end
@@ -20,12 +20,19 @@ require('packer').startup(function(use)
 	use 'nvim-tree/nvim-web-devicons'
 	use 'nvim-telescope/telescope.nvim'
 	use 'nvim-lua/plenary.nvim'
+	use 'BurntSushi/ripgrep'
 	use 'nvim-lualine/lualine.nvim'
 	use 'catppuccin/nvim'
 	use 'akinsho/bufferline.nvim'
 	use 'akinsho/toggleterm.nvim'
 	use 'lewis6991/gitsigns.nvim'
 	use 'gelguy/wilder.nvim'
+	use 'williamboman/mason.nvim'
+	use 'williamboman/mason-lspconfig.nvim'
+	use 'neovim/nvim-lspconfig'
+	use 'lukas-reineke/lsp-format.nvim'
+	use 'hrsh7th/nvim-cmp'
+	use 'hrsh7th/cmp-nvim-lsp'
 end)
 
 -- Setup the file explorer
@@ -68,7 +75,7 @@ setup 'gitsigns' {}
 
 -- Command autocomplete
 setup 'wilder' {
-	modes = {':', '/', '?'}
+	modes = { ':', '/', '?' }
 }
 
 local hasWilder, wilder = pcall(require, 'wilder')
@@ -78,4 +85,3 @@ if hasWilder then
 		highlighter = wilder.basic_highlighter(),
 	}))
 end
-

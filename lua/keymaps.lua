@@ -1,12 +1,22 @@
 local keymap = vim.keymap.set
 local opts = { silent = false }
 
+local function add_telescope_bindings()
+	local hasTelescope, telescope = pcall(require, 'telescope.builtin')
+	if not hasTelescope then return end
+	
+	keymap("n", "<Leader>ff", telescope.find_files, opts) -- Open the find file floating window
+	keymap('n', '<leader>fg', telescope.live_grep, opts) -- Open the find item floating window
+	keymap('n', '<leader>fb', telescope.buffers, opts)
+	keymap('n', '<leader>fh', telescope.help_tags, opts)
+end
+
 -- Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- Custom Shortcuts
-keymap("n", "<Leader>ff", require('telescope.builtin').find_files, opts) -- Open the find file floating window
+add_telescope_bindings()
 keymap("n", "<Leader>e", function() vim.cmd "Lcarbon!" end, opts) -- Open (or focus) the file explorer sidebar
 keymap('n', '<Leader>E', function() vim.cmd "Fcarbon" end, opts) -- Open the file explorer as a floating window
 keymap('n', '<Leader>h', function() vim.cmd 'bprev' end, opts) -- Go to the last buffer
