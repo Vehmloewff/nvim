@@ -19,6 +19,7 @@ require('packer').startup(function(use)
 	use 'catppuccin/nvim'
 
 	use 'akinsho/bufferline.nvim'
+	use 'akinsho/toggleterm.nvim'
 end)
 
 -- Setup the file explorer
@@ -52,3 +53,9 @@ require('lualine').setup {}
 
 -- Setup those fancy web-dev-icons
 require('nvim-web-devicons').setup {}
+
+-- Setup better terminal control
+require('toggleterm').setup {
+
+}
+
