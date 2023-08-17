@@ -10,8 +10,3 @@ vim.api.nvim_create_user_command('Q', function()
 	end
 end, {})
 
-vim.api.nvim_create_autocmd('SaveOnBlur', {
-	command = 'w',
-	group = vim.api.nvim_create_autogroup(),
-})
-
