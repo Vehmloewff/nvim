@@ -33,6 +33,8 @@ require('packer').startup(function(use)
 	use 'lukas-reineke/lsp-format.nvim'
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-nvim-lsp'
+	use 'saadparwaiz1/cmp_luasnip'
+	use 'L3MON4D3/LuaSnip'
 end)
 
 -- Setup the file explorer

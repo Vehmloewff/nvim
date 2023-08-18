@@ -10,4 +10,4 @@ require('plugins')
 require('keymaps')
 require('commands')
 require('lsp')
-
+require('terminals')
