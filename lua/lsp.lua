@@ -21,6 +21,7 @@ local servers = {
 	'lua_ls',
 	'rust_analyzer',
 	'denols',
+	'pyright',
 }
 
 mason.setup {}
@@ -85,6 +86,13 @@ lsp.rust_analyzer.setup {
 lsp.denols.setup {
 	on_attach = function(client, buffer)
 		fmt.on_attach(client, buffer)
+	end,
+	capabilities = get_capabilities()
+}
+
+lsp.pyright.setup {
+	on_attach = function(client, buffer)
+		-- fancy stuff here
 	end,
 	capabilities = get_capabilities()
 }
